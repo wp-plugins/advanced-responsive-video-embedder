@@ -428,6 +428,7 @@ add_shortcode( $tags["dailymotionlist_tag"], 'make_dailymotionlist');
 -19 youtubelist
 -20 dailymotionlist
 */
+
 function buildEmbed( $id, $provider, $align=NULL, $mode=NULL, $maxwidth=NULL, $width=NULL, $height=NULL, $time=NULL ) {
 $object = '';
 $thumbnail = '';

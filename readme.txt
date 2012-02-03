@@ -6,7 +6,7 @@ Requires at least: 3.3.1
 Tested up to: 3.3.1
 Stable tag: trunk
 
-Embed Videos with simple shortcodes from many providers full resonsible sizes. Let videos open in jquery colorbox. 
+Embed videos with simple shortcodes from many providers with full responsive sizes. Show videos as thumbnails and let them open in colorbox. 
 
 == Description ==
 
@@ -22,7 +22,7 @@ Embed Videos with simple shortcodes from many providers full resonsible sizes. L
 
 = Modes =
 
-* Normal mode: Responsible embeds automatically resized to 100% of your content area. U can set up a max-width if you
+* Normal mode: Responsible embeds automatically resized to 100% of your content area. You can set up a max-width if you
 dont want to let the video bigger then you like it.
 
 * Thumb mode: This requires jquery colorbox to be loaded, the easiest way to get it by installing the 
@@ -79,7 +79,7 @@ with your big video in it.
 
 `[metacafe id=237147 w=400 h=300]`
 
-This will automatically switch to 'fixed' mode and create a NOT resposive fixed sized embed.
+This will automatically switch to 'fixed' mode and create a NOT responsive fixed sized embed.
 
 `[metacafe id=237147 align=left]`
 
@@ -114,6 +114,9 @@ Yes
 1. Options Page
 
 == Changelog ==
+
+= 1.4.4 =
+* fixes
 
 = 1.4.2 =
 * Options dialog overhaul
