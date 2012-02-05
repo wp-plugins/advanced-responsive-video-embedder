@@ -27,6 +27,7 @@ function defaultSettings() {
 	if($option["funnyordie_tag"]=="")		$option["funnyordie_tag"] = "funnyordie";		//18
 	if($option["youtubelist_tag"]=="")		$option["youtubelist_tag"] = "youtubelist";		//19
 	if($option["dailymotionlist_tag"]=="")	$option["dailymotionlist_tag"] = "dailymotionlist";		//20
+	if($option["flickr_tag"]=="")			$option["flickr_tag"] = "flickr";
 	update_option('videoembedder_options',	$option);
 }
 
@@ -60,6 +61,7 @@ $updated=false;
 			"funnyordie_tag"		=> $_POST["funnyordie_tag"],
 			"youtubelist_tag"		=> $_POST["youtubelist_tag"],
 			"dailymotionlist_tag"	=> $_POST["dailymotionlist_tag"],
+			"flickr_tag"			=> $_POST["flickr_tag"]
 		);
 
 		$updated=true;
@@ -95,6 +97,7 @@ $updated=false;
 	$funnyordie_tag = $videoembedder_options["funnyordie_tag"];
 	$youtubelist_tag = $videoembedder_options["youtubelist_tag"];
 	$dailymotionlist_tag = $videoembedder_options["dailymotionlist_tag"];
+	$flickr_tag = $videoembedder_options["flickr_tag"];
 
 	echo '<div class="wrap"><h2>Advanced Responsive Video Embedder Settings</h2>';
 	
@@ -236,6 +239,10 @@ $updated=false;
 		<tr valign='top'>
 			<th scope='raw'>Dailymotion Jukebox tag:</th>
 			<td><input name='dailymotionlist_tag' type='text' id='dailymotionlist_tag' value='$dailymotionlist_tag'></td>
+		</tr>
+		<tr valign='top'>
+			<th scope='raw'>Flickr tag:</th>
+			<td><input name='flickr_tag' type='text' id='flickr_tag' value='$flickr_tag'></td>
 		</tr>
 	</table>
 	<p class='submit'><input type='submit' name='Submit' value='Save' class='button-primary'>$updated</p></form></div>";

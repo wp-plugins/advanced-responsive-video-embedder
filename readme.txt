@@ -115,6 +115,10 @@ Yes
 
 == Changelog ==
 
+= 1.4.5 =
+* added flickr video, archive.org
+* inproved how flashvars were implemented
+
 = 1.4.4 =
 * fixes
 
