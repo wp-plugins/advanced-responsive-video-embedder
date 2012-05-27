@@ -1,9 +1,9 @@
 === Advanced Responsive Video Embedder ===
 Contributors: nico23
 Donate link: http://my-hardware.net/plugins/advanced-responsive-video-embedder/
-Tags: embeds, embed, flash, iframe, videos, youtube, blip, bliptv, dailymotion, videojug, collegehumor, veoh, break, movieweb, snotr, gametrailers, vimeo, viddler, funnyordie, myspace, liveleak, metacafe, googlevideo, google video, responsive, myvideo
+Tags: embeds, embed, flash, iframe, videos, youtube, blip, bliptv, dailymotion, videojug, collegehumor, veoh, break, movieweb, snotr, gametrailers, vimeo, viddler, funnyordie, myspace, liveleak, metacafe, googlevideo, google video, responsive, myvideo, minimal, lightweight, simple, simplicity
 Requires at least: 3.3.1
-Tested up to: 3.3.1
+Tested up to: 3.3.2
 Stable tag: trunk
 
 Embed videos with simple shortcodes from many providers with full responsive sizes. Show videos as thumbnails and let them open in colorbox. 
@@ -87,12 +87,12 @@ Makes a video align left - you guessed it.
 
 = Notice this =
 
-The id of a video is easy to find in the providers url. For example `ww.metacafe.com/watch/`**237147**`/9_11_alex_jones_and_charlie_sheen_interview/`.
+The id of a video is easy to find in the providers url. For example ww.metacafe.com/watch/**237147**/9_11_alex_jones_and_charlie_sheen_interview/.
 But for some this providers u need to get the id from the embed code
 
-= Exceptions for getting the 'id' from embed code instead of url =
-* blip - `<iframe src="http://blip.tv/play/`**g45ggoykLAI**`.html?p=1" ...`
-* videojug - `<object .../player?id=`**e37b3839-21e4-de7d-f6ee-ff0008ca2ccd**`"></param> ...`
+= Exceptions for getting the id from the embed code instead of the url
+* blip - <iframe src="http://blip.tv/play/`**g45ggoykLAI**`.html?p=1" ...
+* videojug - <object .../player?id=`**e37b3839-21e4-de7d-f6ee-ff0008ca2ccd**`"></param> ...
 
 == Installation ==
 
@@ -115,6 +115,9 @@ Yes
 
 == Changelog ==
 
+= 1.5 =
+* lots of code improvements, now uses wordpress settings api, and propper sanetising
+
 = 1.4.5 =
 * added flickr video, archive.org
 * inproved how flashvars were implemented
@@ -124,12 +127,11 @@ Yes
 
 = 1.4.2 =
 * Options dialog overhaul
-* replaced fancybox with colobox
+* replaced fancybox with colorbox
 
 = 1.0 =
 * Removed Services that went down over the years
-* Chaged the way shortcode were implemented from regexp to wordpress 'add shortcode' function
-* millions of changes ^^
+* Changed the way shortcodes were implemented from regexp to wordpress 'add shortcode' function
 
 = 0.1 =
 * Started by inproving the Wordpress 'Video Embedder Plugin' but now almost complete new code
