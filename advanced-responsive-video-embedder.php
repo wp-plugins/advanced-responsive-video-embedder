@@ -3,7 +3,7 @@
 Plugin Name: Advanced Responsive Video Embedder
 Plugin URI: http://www.my-hardware.net/plugins/advanced-responsive-video-embedder/
 Description: Embed Videos with simple shortcodes from many providers in full resonsible sizes. Generate thumbnails of videos to open them in colorbox.
-Version: 1.5
+Version: 1.6
 Author: Nicolas Jonas
 Author URI: http://www.my-hardware.net/
 */
@@ -78,7 +78,7 @@ function arve_init(){
 // Sanitize and validate input. Accepts an array, return a sanitized array.
 function arve_validate_options( $input ) {
 	
-	// I get errors when I just unset the options so when a shortcode is entered to small i just put current option back in
+	// I get errors when I just unset the options so when a shortcode entered is to small i just put current option back in
 	$options = get_option('arve_options');
 	
 	$input['mode'] = wp_filter_nohtml_kses( $input['mode'] );
@@ -190,7 +190,7 @@ function arve_render_form() {
 	</p>
 	
 	<h3>Change shortcode tags</h3>
-	<p>Its not recommended to change the shortcode tags, but you can do this here. You might need to prevent conflicts with other plugins you want to use.
+	<p>It's not recommended to change the shortcode tags, but you can do this here. You might need this to prevent conflicts with other plugins you want to use. At least 3 alphanumec characters with optional underscores are needed!</p>
 	
 	<table class="form-table">
 	<?php
@@ -204,7 +204,7 @@ function arve_render_form() {
 		<tr valign="top">
 			<th scope="raw"><label for="arve_options[' . $key . ']">' . $title . '</label></th>
 			<td><input type="text" name="arve_options[' . $key . ']"  value="' . $val . '"></td>
-		</tr>';
+		</tr>' . "\n";
 	}
 	
 	?>
@@ -308,7 +308,7 @@ function arve_style(){
 		left: 50%;
 		margin-left: -25px;
 		margin-top: -19px;
-	} 
+	}
 	.arve-hidden {
 		display: none;
 	}

@@ -90,9 +90,9 @@ Makes a video align left - you guessed it.
 The id of a video is easy to find in the providers url. For example ww.metacafe.com/watch/**237147**/9_11_alex_jones_and_charlie_sheen_interview/.
 But for some this providers u need to get the id from the embed code
 
-= Exceptions for getting the id from the embed code instead of the url
-* blip - <iframe src="http://blip.tv/play/`**g45ggoykLAI**`.html?p=1" ...
-* videojug - <object .../player?id=`**e37b3839-21e4-de7d-f6ee-ff0008ca2ccd**`"></param> ...
+= Exceptions for getting the id from the embed code instead of the url =
+* blip - <iframe src="http://blip.tv/play/**g45ggoykLAI**.html?p=1" [...]
+* videojug - <object [...] /player?id=**e37b3839-21e4-de7d-f6ee-ff0008ca2ccd**"></param> [...]
 
 == Installation ==
 
@@ -114,6 +114,9 @@ Yes
 1. Options Page
 
 == Changelog ==
+
+= 1.6 =
+* corrected readme errors, typos and added better description to shortcode options
 
 = 1.5 =
 * lots of code improvements, now uses wordpress settings api, and propper sanetising
