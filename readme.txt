@@ -4,7 +4,7 @@ Donate link: http://my-hardware.net/plugins/advanced-responsive-video-embedder/
 Tags: embeds, embed, flash, iframe, videos, youtube, blip, bliptv, dailymotion, videojug, collegehumor, veoh, break, movieweb, snotr, gametrailers, vimeo, viddler, funnyordie, myspace, liveleak, metacafe, googlevideo, google video, responsive, myvideo, minimal, lightweight, simple, simplicity
 Requires at least: 3.3.1
 Tested up to: 3.3.2
-Stable tag: trunk
+Stable tag: 1.6
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
