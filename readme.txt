@@ -36,18 +36,13 @@ Simple lightweight plugin lets you embed videos from many providers with full re
 * Viddler
 * Videojug
 * Vimeo
+* Yahoo!
 * YouTube (inc. playlists)
 * More in future versions
 
 == Installation ==
 
-1. For most webhosts the usuall way: WP Dashboard -> Plugins -> Add New -> Search `Advanced Responsive Video Embedder` -> Install -> Activate -> Skip to step 5
-2. Manuall install: Extract the zip file
-3. Upload the `advanced-responsive-video-embedder` directory to the `/wp-content/plugins/` directory
-4. Activate the plugin through the 'Plugins' menu in WordPress
-5. Make some Options if you like
-6. If you want to use the `Thumbnail Mode` you need to install the [jQuery Colorbox Plugin](http://wordpress.org/extend/plugins/jquery-colorbox/) or make colorbox load in any way on your WordPress
-6. Click the Video icon in your WordPress rich text editor, enjoy!
+[More info and demo](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/)
 
 == Frequently Asked Questions ==
 
@@ -57,9 +52,15 @@ Depends, but most likely yes.
 
 == Screenshots ==
 
-1. Options Page
+-
 
 == Changelog ==
+
+= 2.0beta =
+* added Yahoo!
+* spike bugfix
+* small improvements to code
+* removed the fixed mode
 
 = 1.9beta =
 * added youtubes modestbranding mode

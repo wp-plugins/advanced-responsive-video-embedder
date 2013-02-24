@@ -5,7 +5,7 @@
 Plugin Name: Advanced Responsive Video Embedder
 Plugin URI: http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/
 Description: Embed Videos with simple shortcodes from many providers in full resonsible sizes. Generate thumbnails of videos to open them in colorbox.
-Version: 1.9beta
+Version: 2.0beta
 Author: Nicolas Jonas
 Author URI: http://nextgenthemes.com
 Licence: GPL v3
@@ -24,7 +24,11 @@ if ( ! defined( 'ABSPATH' ) )
 
 require_once( plugin_dir_path( __FILE__ ) . 'tinymce.php' );
 
-load_plugin_textdomain('arve-plugin', false, basename( dirname( __FILE__ ) ) . '/languages' );
+add_action('plugins_loaded', 'arve_action_plugins_loeaded');
+
+function arve_action_plugins_loeaded() {
+	load_plugin_textdomain( 'arve-plugin', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+}
 
 register_activation_hook(__FILE__, 'arve_options');
 
@@ -38,8 +42,6 @@ function arve_options( $reset = false ) {
 	'thumb_width'           => 300,
 	'thumb_height'          => 180,
 	'custom_thumb_image'    => '',
-	'video_width'           => 0,
-	'video_height'          => 0,
 	'video_maxwidth'        => 0,
 	
 	'archiveorg_tag'      => 'archiveorg',
@@ -65,6 +67,7 @@ function arve_options( $reset = false ) {
 	'videojug_tag'        => 'videojug',
 	'vimeo_tag'           => 'vimeo',
 	'youtube_tag'         => 'youtube',
+	'yahoo_tag'           => 'yahoo',
 	'youtubelist_tag'     => 'youtubelist',
 	
 	);
@@ -78,17 +81,19 @@ function arve_options( $reset = false ) {
 	// remove (old) options that are not needed (not in defaults array)
 	foreach( $options as $key => $val ) {
 		if ( ! array_key_exists($key, $defaults) )
-			unset($options['$key']);
+			unset($options[$key]);
 	}
 
 	$options = wp_parse_args($options, $defaults);
 
+	var_dump($options);
+
 	update_option( 'arve_options', $options, '', 'yes' );
 }
 
-add_action('admin_init', 'arve_init' );
+add_action('admin_init', 'arve_admin_init' );
 
-function arve_init(){
+function arve_admin_init(){
 	register_setting( 'arve_plugin_options', 'arve_options', 'arve_validate_options' );
 }
 
@@ -178,14 +183,14 @@ function arve_render_form() {
 			<th scope="row"><label for="video_maxwidth">Video Maximal Width: </label></th>
 			<td>
 				<input name="arve_options[video_maxwidth]" type="text" value="<?php echo $options['video_maxwidth'] ?>" class="small-text"><br>
-				<span class='description'><?php _e('Not needed, if u set this to "0" your videos will me the maximum size of the container they are in. If your Page has a big width you might want to set this.'); ?></span>
+				<span class='description'><?php _e('Not needed, if u set this to "0" your videos will me the maximum size of the container they are in. If your Page has a big width you might want to set this.', 'arve-plugin'); ?></span>
 			</td>
 		</tr>
 		<tr valign="top">
 			<th scope="row"><label for="fakethumb">Fake Thumbnails: </label></th>
 			<td>
 				<input name="arve_options[fakethumb]" type="checkbox" value="1" <?php checked( 1, $options['fakethumb'] ); ?> /><br/>
-				<span class='description'><?php _e('Loads the actual Videoplayer as \'background image\' to for thumbnails to emulate the feature Youtube, Dailymotion and Bliptv have. If not enabled thumbnails are displayed black.'); ?></span>
+				<span class='description'><?php _e('Loads the actual Videoplayer as \'background image\' to for thumbnails to emulate the feature Youtube, Dailymotion and Bliptv have. If not enabled thumbnails are displayed black.', 'arve-plugin'); ?></span>
 			</td>
 		</tr>
 		<tr valign="top">
@@ -195,14 +200,14 @@ function arve_render_form() {
 				<input name="arve_options[thumb_width]" type="text" value="<?php echo $options['thumb_width'] ?>" class="small-text"><br/>
 				<label for="arve_options[thumb_height]">Height</label>
 				<input name="arve_options[thumb_height]" type="text" value="<?php echo $options['thumb_height'] ?>" class="small-text"><br/>
-				<span class="description"><?php _e('Needed! Must be 50+ to work.'); ?></span>
+				<span class="description"><?php _e('Needed! Must be 50+ to work.', 'arve-plugin'); ?></span>
 			</td>
 		</tr>
 		<tr valign="top">
 			<th scope="row"><label for="custom_thumb_image">Custom Thumbnail Image: </label></th>
 			<td>
 				<input name="arve_options[custom_thumb_image]" type="text" value="<?php echo $options['custom_thumb_image'] ?>" class="large-text"><br>
-				<span class='description'><?php _e('To be used instead of black background. Upload a 16:10 Image with a size bigger or equal the thumbnials size you want to use into your WordPress and paste the URL of it here.'); ?></span>
+				<span class='description'><?php _e('To be used instead of black background. Upload a 16:10 Image with a size bigger or equal the thumbnials size you want to use into your WordPress and paste the URL of it here.', 'arve-plugin'); ?></span>
 			</td>
 		</tr>
 	</table>
@@ -212,7 +217,7 @@ function arve_render_form() {
 	</p>
 	
 	<h3>Change shortcode tags</h3>
-	<p><?php _e('You might need this to prevent conflicts with other plugins you want to use. At least 3 alphanumec characters with optional underscores are needed!'); ?></p>
+	<p><?php _e('You might need this to prevent conflicts with other plugins you want to use. At least 3 alphanumec characters with optional underscores are needed!', 'arve-plugin'); ?></p>
 	
 	<table class="form-table">
 	<?php
@@ -252,27 +257,15 @@ function arve_style() {
 
 	$max_width = $options["video_maxwidth"];
 
-	$width  = $options["video_width"];
-	$height = $options["video_height"];
-
 	$thumb_width  = $options['thumb_width'];
 	$thumb_height = $options['thumb_height'];
 
-	$output = '';
+	$css = '';
 
 	if ( $max_width > 0 )
-		$output .= '.arve-maxwidth-wrapper { width: 100%; max-width: ' . $max_width . 'px; }';
+		$css .= '.arve-maxwidth-wrapper { width: 100%; max-width: ' . $max_width . 'px; }';
 
-	if ( ( $width > 50 ) && ( $height > 50 ) ) {
-		$output .= 
-			'.arve-fixedsize {
-				width: ' . $width . 'px;
-				height: ' . $height . 'px;
-				margin-bottom: 20px;
-			}';
-	}
-
-	$output .= '
+	$css .= '
 	.arve-embed-container {
 		position: relative;
 		padding-bottom: 56.25%; /* 16/9 ratio */
@@ -325,9 +318,10 @@ function arve_style() {
 	}
 	';
 
-	$output = str_replace( array( "\n", "\t", "\r" ), '', $output );
+	$css = str_replace( "\t", '', $css );
+	$css = str_replace( array( "\n", "\r" ), ' ', $css );
 
-	echo '<style type="text/css">' . $output . '</style>' ."\n";
+	echo '<style type="text/css">' . $css . '</style>' ."\n";
 }
 
 function arve_filter_shortcode_options( $options ){
@@ -479,12 +473,16 @@ function arve_shortcode_init() {
 	$comedycentral->shortcode = 'comedycentral';
 	$comedycentral->create_shortcode();
 
-	$comedycentral = new ArveMakeShortcodes();
-	$comedycentral->shortcode = 'spike';
-	$comedycentral->create_shortcode();
+	$spike = new ArveMakeShortcodes();
+	$spike->shortcode = 'spike';
+	$spike->create_shortcode();
+
+	$yahoo = new ArveMakeShortcodes();
+	$yahoo->shortcode = 'yahoo';
+	$yahoo->create_shortcode();
 }
 
-function arve_build_embed( $id, $provider, $align = null, $mode = null, $maxwidth = null, $width = null, $height = null, $time = null ) {
+function arve_build_embed( $id, $provider, $align = null, $mode = null, $maxwidth = null, $time = null ) {
 
 $output = '';
 $thumbnail = null;
@@ -527,32 +525,6 @@ switch ($provider) {
 		break;
 	default:
 		return "<p><strong>ARVE Error:</strong> provider '$provider' not valid.</p>";
-		break;
-}
-
-switch ($width) {
-	case '':
-		$width = $options['video_width'];
-		break;
-	case ( ! preg_match("/^[0-9]{1,4}$/", $width) ):
-	default:
-		return "<p><strong>ARVE Error:</strong> width (w) '$width' not valid.</p>";
-		break;
-	case ( $width > 50 ):
-		$customwidth = $width . "px";
-		break;
-}
-
-switch ($height) {
-	case '':
-		$height = $options['video_height'];
-		break;
-	case ( ! preg_match("/^[0-9]{1,4}$/", $height) ):
-	default:
-		return "<p><strong>ARVE Error:</strong> height (h) '$height' not valid.</p>";
-		break;
-	case ( $height > 50 ):
-		$customheight = $height . "px";
 		break;
 }
 
@@ -805,6 +777,11 @@ case 'ustream':
 	$param_no_autoplay = '&amp;autoplay=false';
 	$param_autoplay = '&amp;autoplay=true';
 	break;
+case 'yahoo':
+	$urlcode = 'http://' . $id . '.html?format=embed';
+	$param_no_autoplay = '&player_autoplay=false';
+	$param_autoplay = '&player_autoplay=true';
+	break;
 default:
 	$output .= 'ARVE Error: No provider';
 }
@@ -942,33 +919,4 @@ if ( $mode == 'fixed' ) {
 }
 
 return $output;
-}
-
-/* Display a notice that can be dismissed */
-add_action('admin_notices', 'arve_admin_notice');
-
-function arve_admin_notice() {
-	global $current_user ;
-        $user_id = $current_user->ID;
-        /* Check that the user hasn't already clicked to ignore the message */
-	if ( ! get_user_meta($user_id, 'arve_ignore_notice') ) {
-        ?>
-        <div class="updated">
-        	<p>
-        	Sorry for this nag but i am planning to remove the fixed mode from the Advanced Responsive Video Embedder Plugin and i suggest you use the max-width feature instead. If you really use/need this feature <a href="https://github.com/nextgenthemes/advanced-responsive-video-embedder/issues">let me know</a> please. Check out the new button in your rich text editor! <a href="?arve_nag_ignore=0">Dismiss</a>
-        	</p>
-    	</div>
-        <?php
-	}
-}
-
-add_action('admin_init', 'arve_nag_ignore');
-
-function arve_nag_ignore() {
-	global $current_user;
-        $user_id = $current_user->ID;
-        /* If user clicks to ignore the notice, add that to their user meta */
-        if ( isset($_GET['arve_nag_ignore']) && '0' == $_GET['arve_nag_ignore'] ) {
-             add_user_meta($user_id, 'arve_ignore_notice', 'true', true);
-	}
 }
