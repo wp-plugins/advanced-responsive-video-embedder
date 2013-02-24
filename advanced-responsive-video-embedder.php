@@ -5,7 +5,7 @@
 Plugin Name: Advanced Responsive Video Embedder
 Plugin URI: http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/
 Description: Embed Videos with simple shortcodes from many providers in full resonsible sizes. Generate thumbnails of videos to open them in colorbox.
-Version: 2.0beta
+Version: 2.0.1beta
 Author: Nicolas Jonas
 Author URI: http://nextgenthemes.com
 Licence: GPL v3
@@ -85,8 +85,6 @@ function arve_options( $reset = false ) {
 	}
 
 	$options = wp_parse_args($options, $defaults);
-
-	var_dump($options);
 
 	update_option( 'arve_options', $options, '', 'yes' );
 }
