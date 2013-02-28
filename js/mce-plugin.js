@@ -323,6 +323,14 @@ jQuery(document).ready(function($) {
 					return output;
 				}
 
+				regExp = /src="(http[^"]+)"/i;
+				match = code.match(regExp);
+				if (match&&match[1]) {
+					output[0] = 'iframe';
+					output[1] = match[1];
+					return output;
+				}
+
 				// regExp = /clipfish\.de\/(?:embed_image\/\?vid=|[a-z\/\-]+)([0-9]{2,7})/i;
 
 				console.log('nothing matched');

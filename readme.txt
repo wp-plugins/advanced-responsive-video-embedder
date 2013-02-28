@@ -1,7 +1,7 @@
 === Advanced Responsive Video Embedder ===
 Contributors: nico23
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UNDSCARF3ZPBC
-Tags: responsive, embeds, embed, flash, iframe, minimal, lightweight, simple, simplicity, shortcodes, videos, youtube, blip, bliptv, dailymotion, videojug, collegehumor, veoh, break, movieweb, snotr, gametrailers, vimeo, viddler, funnyordie, myspace, liveleak, metacafe, googlevideo, myvideo, 
+Tags: responsive, embeds, embed, flash, iframe, minimal, lightweight, simple, simplicity, shortcodes, videos, youtube, blip, bliptv, dailymotion, videojug, collegehumor, veoh, break, movieweb, snotr, gametrailers, vimeo, viddler, funnyordie, myspace, liveleak, metacafe, googlevideo, myvideo, yahoo, spike,
 Requires at least: 3.3.1
 Tested up to: 3.5.1
 Stable tag: trunk
@@ -55,6 +55,10 @@ Depends, but most likely yes.
 -
 
 == Changelog ==
+
+= 2.1-beta =
+* Security and general code improvements
+* Added autoplay option
 
 = 2.0beta =
 * added Yahoo!
