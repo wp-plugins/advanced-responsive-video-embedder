@@ -130,7 +130,7 @@ class Arve_Tinymce_Button {
 				<tr>
 					<th>
 						<label for="arve-mode"><?php _e('Mode', 'ngt-arve'); ?></label><br>
-						<small class="description"><?php _e('Only use it of you want some vidoes have a mode that differs from the one you set in the options.', 'ngt-arve');?></small>
+						<small class="description"><?php _e('Optional override setting for single videos.', 'ngt-arve');?></small>
 					</th>
 					<td>
 						<select id="arve-mode">
@@ -163,7 +163,7 @@ class Arve_Tinymce_Button {
 				<tr style="display: none;" class="arve-hidden">
 					<th>
 						<label for="arve-autoplay"><?php _e('Autoplay this video', 'ngt-arve'); ?></label><br>
-						<small class="description"><?php _e('Only use it of you want some vidoes have a maximal width that differs from the one you set in the options.', 'ngt-arve'); ?></small>
+						<small class="description"><?php _e('Optional override setting for single videos.', 'ngt-arve'); ?></small>
 					</th>
 					<td>
 						<select id="arve-autoplay">
@@ -176,10 +176,10 @@ class Arve_Tinymce_Button {
 				<tr style="display: none;" class="arve-hidden">
 					<th>
 						<label for="arve-maxwidth"><?php _e('Maximal width', 'ngt-arve'); ?></label><br>
-						<small class="description"><?php _e('Only use it of you want some vidoes override the autoplay setting for single videos.', 'ngt-arve'); ?></small>
+						<small class="description"><?php _e('Optional override setting for single videos.', 'ngt-arve'); ?></small>
 					</th>
 					<td>
-						<input type="text" id="arve-maxwidth" />	
+						<input type="text" id="arve-maxwidth" value="" />	
 					</td>
 				</tr>
 				<!-- always hidden -->

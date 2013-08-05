@@ -13,7 +13,9 @@
 					image : '../wp-content/plugins/advanced-responsive-video-embedder/img/tinymce-icon.png',  // path to the button's image
 					onclick : function() {
 						// triggers the thickbox
-						var width = jQuery(window).width(), H = jQuery(window).height(), W = ( 720 < width ) ? 720 : width;
+						var width = jQuery(window).width(),
+						H = jQuery(window).height(),
+						W = ( 720 < width ) ? 720 : width;
 						W = W - 80;
 						H = H - 84;
 						tb_show( 'Advanced Responsive Video Embedder Shortcode Creater', '#TB_inline?width=' + W + '&height=' + H + '&inlineId=arve-form' );
@@ -113,13 +115,13 @@ jQuery(document).ready(function($) {
 			});
 
 			var getid = function(code){
-				var regExp;
-				var match;
-				var output = new Array(2);
+				var regExp,
+				match,
+				output = new Array(2);
 
 				regExp = /vimeo\.com\/(?:(?:channels\/[A-z]+\/)|(?:groups\/[A-z]+\/videos\/))?([0-9]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'vimeo';
 					output[1] = match[1];
 					return output;
@@ -127,7 +129,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'youtube';
 					output[1] = match[1];
 					return output;
@@ -135,7 +137,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /metacafe\.com\/(?:watch|fplayer)\/(\d+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'metacafe';
 					output[1] = match[1];
 					return output;
@@ -143,7 +145,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /veoh\.com\/watch\/([a-z0-9]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'veoh';
 					output[1] = match[1];
 					return output;
@@ -151,7 +153,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /dailymotion\.com\/(?:video|hub)\/([a-z0-9]{2,7})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'dailymotion';
 					output[1] = match[1];
 					return output;
@@ -160,7 +162,7 @@ jQuery(document).ready(function($) {
 				// dailymotion with # in url
 				regExp = /dailymotion\.com\/(?:video|hub)\/[a-z0-9]{2,7}_[a-z0-9_\-]+#video=([a-z0-9]{2,7})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'dailymotion';
 					output[1] = match[1];
 					return output;
@@ -169,7 +171,7 @@ jQuery(document).ready(function($) {
 				// dailymotion playlist
 				regExp = /dailymotion\.com\/(?:playlist\/|widget\/jukebox\?list\[\]=%2Fplaylist%2F)([a-z0-9]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'dailymotionlist';
 					output[1] = match[1];
 					return output;
@@ -177,16 +179,16 @@ jQuery(document).ready(function($) {
 
 				regExp = /flickr\.com\/photos\/[a-zA-Z0-9@_\-]+\/([0-9]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'flickr';
 					output[1] = match[1];
 					return output;
 				}
 
 				// only embed code
-				regExp = /blip\.tv\/play\/([a-z0-9]{11})/i;
+				regExp = /blip\.tv\/play\/([a-z0-9]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'bliptv';
 					output[1] = match[1];
 					return output;
@@ -194,7 +196,7 @@ jQuery(document).ready(function($) {
 			
 				regExp = /collegehumor\.com\/video\/([0-9]{7})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'collegehumor';
 					output[1] = match[1];
 					return output;
@@ -202,7 +204,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /snotr\.com\/video\/([0-9]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'snotr';
 					output[1] = match[1];
 					return output;
@@ -210,7 +212,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /videojug\.com\/embed\/([a-z0-9-]{36})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'videojug';
 					output[1] = match[1];
 					return output;
@@ -218,7 +220,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /ustream\.tv\/(?:channel|embed|recorded)\/(?:recorded\/)?([0-9]{8})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'ustream';
 					output[1] = match[1];
 					return output;
@@ -227,7 +229,7 @@ jQuery(document).ready(function($) {
 				// usteam highlight url
 				regExp = /ustream\.tv\/(?:channel|embed|recorded)\/(?:recorded\/)?[0-9]{8}\/highlight\/([0-9]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'ustream';
 					output[1] = match[1];
 					return output;
@@ -235,7 +237,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /viddler\.com\/(?:embed|v)\/([0-9a-z]{8})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'viddler';
 					output[1] = match[1];
 					return output;
@@ -243,7 +245,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /myvideo\.de\/(?:watch|embed)\/([0-9]{7})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'myvideo';
 					output[1] = match[1];
 					return output;
@@ -251,7 +253,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /liveleak\.com\/(?:view\?i|ll_embed\?f)=([0-9a-z\_]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'liveleak';
 					output[1] = match[1];
 					return output;
@@ -259,7 +261,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /funnyordie\.com\/videos\/([0-9a-z]{10})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'liveleak';
 					output[1] = match[1];
 					return output;
@@ -267,7 +269,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /archive\.org\/(?:details|embed)\/([0-9a-z]+)/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'archiveorg';
 					output[1] = match[1];
 					return output;
@@ -275,7 +277,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /myspace\.com\/video\/(?:[a-z\/\-]+)?([0-9]{9})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'myspace';
 					output[1] = match[1];
 					return output;
@@ -283,7 +285,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /movieweb\.com\/v\/([a-z0-9]{14})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'movieweb';
 					output[1] = match[1];
 					return output;
@@ -291,7 +293,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /comedycentral\.com:([a-z0-9\-]{36})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'comedycentral';
 					output[1] = match[1];
 					return output;
@@ -299,7 +301,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /gametrailers\.com:([a-z0-9\-]{36})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'gametrailers';
 					output[1] = match[1];
 					return output;
@@ -307,7 +309,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /spike\.com:([a-z0-9\-]{36})/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'spike';
 					output[1] = match[1];
 					return output;
@@ -315,7 +317,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /src="http:\/\/([a-z]+\.yahoo\.com\/video\/[a-z0-9-]+)\.html\?/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'yahoo';
 					output[1] = match[1];
 					return output;
@@ -323,7 +325,7 @@ jQuery(document).ready(function($) {
 
 				regExp = /src="(http[^"]+)"/i;
 				match = code.match(regExp);
-				if (match&&match[1]) {
+				if ( match && match[1] ) {
 					output[0] = 'iframe';
 					output[1] = match[1];
 					return output;

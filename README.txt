@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: responsive, embeds, embed, flash, iframe, minimal, lightweight, simple, simplicity, shortcodes, videos, youtube, blip, bliptv, dailymotion, videojug, collegehumor, veoh, break, movieweb, snotr, gametrailers, vimeo, viddler, funnyordie, myspace, liveleak, metacafe, googlevideo, myvideo, yahoo, spike,
 Requires at least: 3.3.1
 Tested up to: 3.6
-Stable tag: 2.6.0
+Stable tag: 2.6.1
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -57,7 +57,12 @@ Depends, but most likely yes.
 
 == Changelog ==
 
-= 2.6 =
+= 2.6.1 =
+* Fix Colorbox args script not having colorbox in depenency array
+* Fix maxwidth shortcode generotor field now has default value=""
+* Fix blip.tv embed code detection
+
+= 2.6.0 =
 * Move to a class structure with help of the great https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate
 * Some smaller Improvements
 * Shortcode Dialog now has Autoplay option
