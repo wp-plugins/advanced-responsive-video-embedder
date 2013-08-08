@@ -59,7 +59,8 @@ Depends, but most likely yes.
 
 = 2.6.2 =
 * Fix Objects open correctly in Colorbox
-* Fix Iframe autoplay parameters startign with '&';
+* Fix Iframe autoplay parameters startign with '&'
+* Added screenshot for options page
 
 = 2.6.1 =
 * Fix Colorbox args script not having colorbox in depenency array

@@ -55,7 +55,7 @@ class Advanced_Responsive_Video_Embedder {
 	 *
 	 * @var     string
 	 */
-	protected $version = '2.6.1';
+	protected $version = '2.6.2';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -802,7 +802,7 @@ class Advanced_Responsive_Video_Embedder {
 			right: 0;
 		}
 		.arve-thumb-wrapper {
-			/** background image is applied with inline CSS */
+			/* Background image is applied with inline CSS */
 			background-position: center center;
 			background-size: cover;
 			background-color: #000;
