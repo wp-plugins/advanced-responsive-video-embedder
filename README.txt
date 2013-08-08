@@ -18,6 +18,8 @@ Simple lightweight plugin lets you embed videos from many providers with full re
 
 = Supported video sites: =
 
+*
+*
 * Blip
 * Break
 * CollegeHumor
