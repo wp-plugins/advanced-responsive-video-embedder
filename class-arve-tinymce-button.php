@@ -204,7 +204,7 @@ class Arve_Tinymce_Button {
 						<small class="description"><?php _e('If not filled in automatically after pasting the url above you have to insert the video ID in here.', 'ngt-arve'); ?></small>
 					</th>
 					<td>
-						<input type="text" id="arve-id" value="" /><br>
+						<input type="text" id="arve-id" value="" />
 					</td>
 				</tr>
 				<!-- end always hidden-->

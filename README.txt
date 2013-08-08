@@ -23,8 +23,8 @@ Simple lightweight plugin lets you embed videos from many providers with full re
 * CollegeHumor
 * Dailymotion (inc. playlists)
 * FunnyOrDie
-* Iframes (in general, every provider that supports iframe embed codes)
 * Gametrailers
+* Iframes (in general, every provider that supports iframe embed codes)
 * Liveleak
 * Metacafe
 * Movieweb
@@ -53,14 +53,18 @@ Depends, but most likely yes.
 
 == Screenshots ==
 
--
+1. Options Page.
 
 == Changelog ==
+
+= 2.6.2 =
+* Fix Objects open correctly in Colorbox
+* Fix Iframe autoplay parameters startign with '&';
 
 = 2.6.1 =
 * Fix Colorbox args script not having colorbox in depenency array
 * Fix maxwidth shortcode generotor field now has default value=""
-* Fix blip.tv embed code detection
+* Fix Blip embed code detection
 
 = 2.6.0 =
 * Move to a class structure with help of the great https://github.com/tommcfarlin/WordPress-Plugin-Boilerplate
