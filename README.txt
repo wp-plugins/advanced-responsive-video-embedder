@@ -61,7 +61,7 @@ Depends, but most likely yes.
 * Fix normal embeds not sizing correctly
 * Added scrolling="no" to Iframes
 * Init shortcodes at a late stage to dominate conflicts
-* Imroved Iframe parameter handling
+* Improved Iframe parameter handling
 * Metacafe, Myspace, Videojug are now handled via Iframe
 
 = 2.6.2 =
