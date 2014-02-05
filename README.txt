@@ -74,7 +74,7 @@ I have no plans on implementing providers that include videos via JavaScript suc
 * Fix: Bug causing the Shortcode Creator not detecting shortcode tags when customized-
 * Improved how embeds `<object>` embed codes are generated.
 * Updated FAQ
-* New: Xtube support (On request! Not sure if this is a good idea starting to add porn sites but this but the guy donated incredible $20 so I can't really say no [/irony]. I reserve the right to remove it. Lol this guy has this site dedicated to material of guys getting their balls hurt, not sure if this should be sad or funny but I decided this deserves a comment on my changelog even if this is the totally wrong place for this. But its MY changelog so ... For now my opinion is do what ever the fuck you like as long as you not hurting any 3rd parties and all happens with consent. Anyway I learned a new word that day - Ballbusting. If you have objections please contact your local ... OK thats enough!)
+* New: Xtube support (On request! Not sure if this is a good idea starting to add porn sites but this but the guy donated $20 so I can't really say no [/irony]. I reserve the right to remove it. Lol this guy has this site dedicated to material of guys getting their balls hurt, not sure if this should be sad or funny but I decided this deserves a comment on my changelog even if this is the totally wrong place for this. But its MY changelog so ... For now my opinion is do what ever the fuck you like as long as you not hurting any 3rd parties and all happens with consent. Anyway I learned a new word that day - Ballbusting. If you have objections please contact your local ... OK thats enough!)
 
 = 3.5.0 =
 * New: Custom parameters!
