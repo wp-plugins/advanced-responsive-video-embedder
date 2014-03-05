@@ -22,7 +22,7 @@ The Plugin has a set of customization options to embed the video exactly as you 
 
 [Documentation](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/documentation) (For advanced usage)
 
-[How to report a problem](http://nextgenthemes.local/plugins/advanced-responsive-video-embedder/reporting-issues-for-advanced-responsive-video-embedder/)
+[How to report a problem](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/reporting-issues-for-advanced-responsive-video-embedder/)
 
 = Supported video sites: =
 
@@ -62,7 +62,7 @@ The Plugin has a set of customization options to embed the video exactly as you 
 
 Pull requests on github to help me out with this would be great
 
- * Move shortcode creator button out of the TinyMCE rich text editor button bar and put it after the add media icon to meke it aviable to the code editor as well.
+ * Move shortcode creator button out of the TinyMCE rich text editor button bar and put it after the add media icon to make it available to the code editor as well.
  * Make objects lazyload (currently effects twitch only)
 
 == Installation ==
@@ -73,7 +73,7 @@ The usual way.
 
 = I have a problem ... =
 
-Plese read: [Reporting Issues for Advanced Responsive Video Embedder](http://nextgenthemes.local/plugins/advanced-responsive-video-embedder/reporting-issues-for-advanced-responsive-video-embedder/)
+Plese read: [Reporting Issues for Advanced Responsive Video Embedder](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/reporting-issues-for-advanced-responsive-video-embedder/)
 
 = Why are my videos not filling their container? =
 
