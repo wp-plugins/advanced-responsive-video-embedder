@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: video, responsive, embed, video-embedder, iframe, minimal, lightweight, simplicity, shortcodes, Youtube, Blip, Dailymotion, Videojug, Collegehumor, Veoh, Break, Movieweb, Snotr, Gametrailers, Vimeo, Viddler, Funnyordie, Myspace, Liveleak, Metacafe, Myvideo, Yahoo Screen, Spike
 Requires at least: 3.3.1
 Tested up to: 3.8
-Stable tag: 3.9.7.1
+Stable tag: 3.9.8
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -60,14 +60,14 @@ The Plugin has a set of customization options to embed the video exactly as you 
 
 = Roadmap  =
 
-Pull requests on github to help me out with this would be great
+Pull requests on Github to help me out with this would be great
 
  * Check compatibility with Wordpress 3.9
  * Move shortcode creator button out of the TinyMCE rich text editor button bar and put it after the add media icon to make it available to the code editor as well.
  * Make objects lazyload (currently effects twitch only)
  * The Jetpack 'Shortcode Embeds' module provides some useful shortcodes not related to video but currently breaks if activated. Figure out if its possible to make them work together.
 
-= Known bugs =
+= Known limitations =
 
  * At least some parts of the Plugin (youtube embeds via URL and maybe more) are broken if the 'Shortcode Embeds' Jetpack module is activated. Please deactive this module if you want to use ARVE for now.
 
@@ -110,6 +110,9 @@ OK thanks, please do so silently.
 
 == Changelog ==
 
+= 3.9.8 =
+* Fix: Thumbnail not opening Colorbox
+
 = 3.9.7 ALPHA! =
 
 * **Do not upgrade just jet if you are not ready to downgrade manually if something fails! But please test if you can.**
@@ -117,11 +120,11 @@ OK thanks, please do so silently.
 * New: Added MPORA support
 * New: Added (real) thumbnail support for Collegehumor, Twitch, FunnyOrDie, MPORA
 * New: `[arve_tests]` shortcode that is used to test the plugin and provide examples.
-* New: `[arve_supported]` shortcode probably of no use for users. It will generate the a list of what providers with what features are supported.
+* New: `[arve_supported]` shortcode probably of no use for users. It will generate the a list of providers with supported features.
 * Improved: Enabled fake thumbnails for Comedycentral, Gametrailers and Spike
 * Improved: Remote API calls and handling their errors.
 * Improved: Get high resolution thumbnails from YouTube if available.
-* Improved: The evil admin message is now only shown once to users who can delete plugins (Admins and the like) and if the plugin is installed longer than a week.
+* Improved: The evil admin message is now only shown once to users who can delete plugins (Admins and the like) and if the plugin was activated a week ago or longer.
 * Improved: Lots of smaller code improvements.
 
 = 3.6.1 =
