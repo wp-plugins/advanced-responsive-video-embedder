@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: video, responsive, embed, video-embedder, iframe, minimal, lightweight, simplicity, shortcodes, Youtube, Blip, Dailymotion, Videojug, Collegehumor, Veoh, Break, Movieweb, Snotr, Gametrailers, Vimeo, Viddler, Funnyordie, Myspace, Liveleak, Metacafe, Myvideo, Yahoo Screen, Spike
 Requires at least: 3.3.1
 Tested up to: 3.8
-Stable tag: 3.9.9
+Stable tag: 4.0.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -110,6 +110,11 @@ OK thanks, please do so silently.
 
 == Changelog ==
 
+= 4.0.0 =
+* New: Trigger-able debug output.
+* Improved: The `[arve_tests]` shortcode now includes alignment and maxwidth tests
+* Fix: Thumbnail image now displayed when using lazyload with `maxwidth` parameter
+
 = 3.9.9 =
 * Improved: Allowing `maxwidth` parameter in `lazyload` mode
 
@@ -118,7 +123,7 @@ OK thanks, please do so silently.
 
 = 3.9.7 ALPHA! =
 
-* **Do not upgrade just jet if you are not ready to downgrade manually if something fails! But please test if you can.**
+* **Do not upgrade just yet if you are not ready to downgrade manually if something fails! But please test if you can.**
 * New: I am proud to introduce the new 'lazyload' mode. ARVEs new default mode. Load Images only and load the Video only on click. Like Google+ without the title.
 * New: Added MPORA support
 * New: Added (real) thumbnail support for Collegehumor, Twitch, FunnyOrDie, MPORA

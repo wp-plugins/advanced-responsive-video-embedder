@@ -57,7 +57,7 @@ class Advanced_Responsive_Video_Embedder {
 	 *
 	 * @var     string
 	 */
-	const VERSION = '3.9.9';
+	const VERSION = '4.0.0';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -749,7 +749,6 @@ class Advanced_Responsive_Video_Embedder {
 		if ( ! empty( $maxw ) && empty( $maxwidth ) ) {
 			$maxwidth = $maxw;
 		}
-
 		$maxwidth = (int) $maxwidth;
 
 		static $counter = 0;
@@ -1177,13 +1176,12 @@ class Advanced_Responsive_Video_Embedder {
 					$inner = $this->create_object( $url_autoplay_no, $object_params_autoplay_no );
 			}
 
-			$thumbnail_bg_style = $this->get_thumbnail_bg_style( $thumbnail );
+			$style = $this->get_wrapper_style( $thumbnail, $maxwidth );
 
-			$output = sprintf(
-				'<div class="%s"%s%s><div class="arve-embed-container">%s</div></div>', 
+			$output .= sprintf(
+				'<div class="%s"%s><div class="arve-embed-container">%s</div></div>',
 				esc_attr( "arve-wrapper arve-normal-wrapper arve-$provider-wrapper $align" ),
-				( isset( $maxwidth_shortcode ) ) ? sprintf( ' style="max-width: %dpx;"', $maxwidth_shortcode ) : '',
-				$thumbnail_bg_style,
+				( $style ) ? sprintf( ' style="%s"', esc_attr( trim( $style ) ) ) : '', 
 				$inner
 			);
 
@@ -1218,12 +1216,12 @@ class Advanced_Responsive_Video_Embedder {
 				);
 			}
 
-			$thumbnail_bg_style = $this->get_thumbnail_bg_style( $thumbnail );
+			$style = $this->get_wrapper_style( $thumbnail );
 
-			$output = sprintf(
-				'<div id="arve-test" class="%s"%s><div class="arve-embed-container">%s</div></div>', 
+			$output .= sprintf(
+				'<div class="%s"%s><div class="arve-embed-container">%s</div></div>',
 				esc_attr( "arve-wrapper arve-thumb-wrapper arve-$provider-wrapper $align" ),
-				$thumbnail_bg_style,
+				( $style ) ? sprintf( ' style="%s"', esc_attr( trim( $style ) ) ) : '', 
 				$inner
 			);
 			
@@ -1231,24 +1229,62 @@ class Advanced_Responsive_Video_Embedder {
 				$output .= sprintf( '<div class="arve-hidden">%s</div>', $this->create_object( $url_autoplay_yes, $object_params_autoplay_yes, $counter ) );
 		}
 
+		if ( isset( $_GET['arve-debug'] ) ) {
+
+			static $show_options_debug = true;
+
+			$options_dump = '';
+
+			if ( $show_options_debug ) {
+
+				ob_start();
+				var_dump( $options );
+				$options_dump = sprintf( 'Options: <pre>%s</pre>', ob_get_clean() );
+			}
+			$show_options_debug = false;
+			
+			ob_start();
+			var_dump( $shortcode_atts );
+			$atts_dump = sprintf( '<pre>%s</pre>', ob_get_clean() );
+
+			return sprintf(
+				'<div>%s Provider: %s<br>%s<pre>%s</pre></div>%s', 
+				$options_dump,
+				$provider,
+				$atts_dump,
+				esc_html( $output ),
+				$output
+			);
+		}
+
 		return $output;
+		
 	}
 
 	/**
 	 *
-	 * @since    3.9.7
+	 * @since    4.0.0
 	 */
-	public function get_thumbnail_bg_style( $thumbnail ) {
+	public function get_wrapper_style( $thumbnail, $maxwidth = false ) {
+
+		$style = false;
 
 		$options = get_option('arve_options');
 
-		if ( ! $thumbnail && empty( $options['custom_thumb_image'] ) ) {
-			return '';
+		if ( $thumbnail) {
+			$bg_url = $thumbnail;
+		}
+		elseif ( $options['custom_thumb_image'] ) {
+			$bg_url = $options['custom_thumb_image'];
 		}
 
-		$bg_url = ( $thumbnail ) ? $thumbnail : $options['custom_thumb_image'];
+		if ( isset( $bg_url ) )
+			$style .= sprintf( 'background-image: url(%s); ', esc_url( $bg_url ) );
 
-		return sprintf( ' style="background-image: url(%s);"', esc_url( $bg_url ) );
+		if ( $maxwidth )
+			$style .= "max-width: {$maxwidth}px; ";
+
+		return $style;
 	}
 
 	/**
@@ -1539,6 +1575,39 @@ function arve_load_video(e,link) {
 		
 		$tests = array(
 
+			'align-tests' => array(
+
+				array(
+					'desc'      => '',
+					'shortcode' => '[vimeo id="23316783"] This text should apper below the video',
+					'expected'  => ''
+				),
+				array(
+					'desc'      => '',
+					'shortcode' => '[vimeo id="23316783" align=center]',
+					'expected'  => ''
+				),
+				array(
+					'desc'      => '',
+					'shortcode' => '[vimeo id="23316783" align=left] This text should appear right next to the video',
+					'expected'  => ''
+				),
+				array(
+					'desc'      => '',
+					'shortcode' => '[vimeo id="23316783" align=right] This text should appear left next to the video',
+					'expected'  => ''
+				),
+			),
+
+			'maxwidth-test' => array(
+
+				array(
+					'desc'      => 'This video should be not wider then 444px in normal and lazyload mode and display centered',
+					'shortcode' => '[vimeo id="23316783" maxwidth="444" align="center"]',
+					'expected'  => ''
+				),
+			),
+
 			'archiveorg' => array(
 
 				array(
@@ -1761,8 +1830,12 @@ function arve_load_video(e,link) {
 			'vevo' => array(
 
 				array(
-					'url'      => 'http://www.vevo.com/watch/muse/53rd-grammys-on-cbs:-best-rock-album/TIVEV1162325',
+					'url'      => 'http://www.vevo.com/watch/the-offspring/the-kids-arent-alright/USSM20100649',
 					'expected' => ''
+				),
+				array(
+					'shortcode' => '[vevo id="US4E51286201"]',
+					'expected'  => ''
 				),
 			),
 			'viddler' => array(
@@ -1848,7 +1921,7 @@ function arve_load_video(e,link) {
 			);
 		}
 
-		foreach ( array( 'normal', 'thumbnail', 'lazyload' ) as $mode ) {
+		foreach ( array( 'lazyload', 'normal', 'thumbnail',  ) as $mode ) {
 			$mode_options .= sprintf( 
 				'<option%s value="%s">%s</option>',
 				selected( $mode, $selected_mode, false ),
@@ -1861,6 +1934,7 @@ function arve_load_video(e,link) {
 			'<p><form method="get">' .
 			sprintf( '<select name="arvet-provider">%s</select>', $provider_options ) .
 			sprintf( '<select name="arvet-mode">%s</select>', $mode_options ) .
+			'Debug output? <input type="checkbox" name="arve-debug">' . 
 			sprintf( '<button tyle="submit">%s</button>', __('Test', $this->plugin_slug ) ) .
 			'</form></p>';
 
@@ -1903,12 +1977,10 @@ function arve_load_video(e,link) {
 						), $shortcode );
 					}
 
-					$shortcode_display = strtr( $shortcode, array( 
-						'[' => '&#91;',
-						']' => '&#93;'
-					) );
 					$content .= sprintf( '<code>%s</code></p><p>%s</p>', esc_html( $shortcode ), do_shortcode( $shortcode ) );
 				}
+
+				$content .= '<div style="display: block; clear: both;"></div><br><hr><br>';
 
 				unset( $desc );
 				unset( $url );
