@@ -105,7 +105,8 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 == Screenshots ==
 
 1. In action
-2. Options page== Changelog ==
+2. Options page
+== Changelog ==
 
 = 4.5.4 =
 * Fix: Save of custom URL parameters
