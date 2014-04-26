@@ -106,7 +106,11 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 
 1. In action
 2. Options page
+
 == Changelog ==
+
+= 4.6.0 =
+* Improvement: PHP required version lowered to 5.2.4
 
 = 4.5.4 =
 * Fix: Save of custom URL parameters
