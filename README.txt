@@ -109,6 +109,10 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 
 == Changelog ==
 
+= 4.8.0 =
+* Updated: Spanish translation now 80% complete. Thanks Xarkitu!
+* Improved: Do not load admin dialog when doing AJAX
+
 = 4.7.0 =
 * Fix: Iframe code detection
 
