@@ -19,9 +19,9 @@ It lets you embed videos from many providers with full responsive sizes via URL 
 The Plugin has a set of customization options to embed the video exactly as you like, this includes custom URL parameters. Defaults to make the videos as unobtrusive as possible and keep your visitors on your site are already included.
 
 * [Features](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/)
-* [Quick introduction with demonstration](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/quick-introduction-and-demo)
+* [Quick introduction with demonstration](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/quick-introduction-and-demonstration/)
 * [Documentation](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/documentation) (For advanced usage)
-* **[How to report a problem](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/reporting-issues-for-advanced-responsive-video-embedder/)**
+* [How to report a problem](http://nextgenthemes.com/plugins/advanced-responsive-video-embedder/reporting-issues-for-advanced-responsive-video-embedder/)
 
 = Supported video sites: =
 
@@ -107,6 +107,11 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 1. In action
 2. Options page
 == Changelog ==
+
+= 5.0.0 Beta =
+* Fix: Max-width options should now work in all circumstances
+* Improved: Various CSS improvements
+* Improved: Changed play overlay image to a Google+ style image 
 
 = 4.9.0 Beta =
 * Improved: All Javascript is loaded from files now and they are only loaded when there are embeds on the page. This improves page load times on pages with no embeds.
