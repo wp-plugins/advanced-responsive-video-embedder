@@ -108,6 +108,9 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 2. Options page
 == Changelog ==
 
+= 5.0.1 Beta =
+* Fix: Options var error
+
 = 5.0.0 Beta =
 * Fix: Max-width options should now work in all circumstances
 * Improved: Various CSS improvements

@@ -24,7 +24,7 @@ class Advanced_Responsive_Video_Embedder {
 	 * @since   2.6.0
 	 * @var     string
 	 */
-	const VERSION = '5.0.0';
+	const VERSION = '5.0.1';
 
 	/**
 	 * Unique identifier for your plugin.
@@ -1365,7 +1365,7 @@ class Advanced_Responsive_Video_Embedder {
 
 		$css = sprintf( '.arve-thumb-wrapper { max-width: %dpx; }', $this->options['thumb_width'] );
 
-		if ( (int) $options["video_maxwidth"] > 0 ) {
+		if ( (int) $this->options["video_maxwidth"] > 0 ) {
 			$css .= sprintf( '.arve-normal-wrapper { max-width: %dpx; }', $this->options['video_maxwidth'] );
 		}
 
