@@ -108,6 +108,9 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 2. Options page
 == Changelog ==
 
+= 5.1.0 =
+* New: Vimeo HTTPS support (works automatically if your site is HTTPS)
+
 = 5.0.2 Beta =
 * Improved: Marked as working with WP 4.0
 
