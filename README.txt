@@ -3,8 +3,8 @@ Contributors: nico23
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=UNDSCARF3ZPBC
 Tags: video, responsive, embed, video-embedder, iframe, minimal, lightweight, simplicity, shortcodes, Youtube, Blip, Dailymotion, Videojug, Collegehumor, Veoh, Break, Movieweb, Snotr, Gametrailers, Vimeo, Viddler, Funnyordie, Myspace, Liveleak, Metacafe, Myvideo, Yahoo Screen, Spike
 Requires at least: 3.3.1
-Tested up to: 4.0
-Stable tag: trunk
+Tested up to: 4.1
+Stable tag: 5.3.0
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
@@ -63,11 +63,10 @@ The Plugin has a set of customization options to embed the video exactly as you 
 
  * At least some parts of the Plugin (youtube embeds via URL and maybe more) are broken if the 'Shortcode Embeds' Jetpack module is activated. Please deactivate this module if you want to use ARVE for now.
 
-= Roadmap  =
+= Roadmap =
 
 Pull requests on Github to help me out with this would be great.
 
- * Make objects lazyload (currently effects twitch only)
  * The Jetpack 'Shortcode Embeds' module provides some useful shortcodes not related to video but currently breaks if activated. Figure out if its possible to make them work together.
 
 == Installation ==
@@ -106,7 +105,20 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 
 1. In action
 2. Options page
+
 == Changelog ==
+
+= 5.3.0 Beta =
+* **If you get a error '... array ...' please reset your options on the options page and redo the options you had before**
+* Fix: '... expected array' error when saving options on some cases. If you get a error please reset your 
+* Fix: ttp://youtu.be/... shortlinks are not detected correctly in the shortcode creator dialog.
+* Improved: Ported code to WordPress Plugin Boilerplate 3.0 style.
+* Improved: Switched vevo and xtube from object to iframe embeds.
+* Improved: Lots of minor code enhancements.
+
+= 5.1.1 =
+* Fix: Removed mixed content warnungs for youtube and vimeo.
+* Translation updates.
 
 = 5.1.0 =
 * New: Vimeo HTTPS support (works automatically if your site is HTTPS)
