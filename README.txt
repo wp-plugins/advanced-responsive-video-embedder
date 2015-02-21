@@ -108,6 +108,9 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 
 == Changelog ==
 
+= 5.3.3 Beta =
+* Fix: Workarround for a currently ongoing YouTube issue causing YouTube embeds to fail with erros on mobile devives. This was not a 'bug' caused by this plugin btw.
+
 = 5.3.2 Beta =
 * Fix: Die 'Array' errors DIE!
 
