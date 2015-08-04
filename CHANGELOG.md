@@ -1,5 +1,13 @@
 ## Changelog ##
 
+### 6.0.6 Beta ###
+
+* Improved: Adds a "Debug Info" tab to the settings page copy pasting when there is are issue.
+
+### 6.0.5 Beta ###
+
+* Fix: Foreach php error
+
 ### 6.0.4 Beta ###
 
 * Fix: Youtube URL with starttime.
