@@ -190,9 +190,25 @@ This plugins embed is considered as 'custom player' by YouTube so you have to pa
 
 ## Changelog ##
 
+### Pro Addon 1.0.7 ###
+
+* Fix: Video start playing again invisible when closeing lightbox with ESC.
+
 ### 6.0.6 Beta ###
 
 * Improved: Adds a "Debug Info" tab to the settings page copy pasting when there is are issue.
+
+### Pro Addon 1.0.6 ###
+
+* Remove development functions.
+
+### Pro Addon 1.0.4 ###
+
+* Possibly Fixes SSL issues during activation.
+
+### Pro Addon 1.0.3 ###
+
+* Fix: Maxwidth issue.
 
 ### 6.0.5 Beta ###
 
