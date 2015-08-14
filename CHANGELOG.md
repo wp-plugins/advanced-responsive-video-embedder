@@ -1,5 +1,10 @@
 ## Changelog ##
 
+### Pro Addon 1.1.3 ###
+
+* Improved: link-linghtbox mode does not force a newline for the link anymore.
+* Fix: Autoplaying in Background when navigating back in browser.
+
 ### Pro Addon 1.1.0 ###
 
 * Fix: Various issues reguarding lightbox mode.
