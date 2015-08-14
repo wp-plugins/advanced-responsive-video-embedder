@@ -252,7 +252,7 @@ class Advanced_Responsive_Video_Embedder_Admin {
 				'value'       => $this->options['promote_link'],
 				'description' => __( "Shows a small 'by ARVE' link below the videos to help me promote this plugin", $this->plugin_slug ),
 			)
-		);	
+		);
 		
 		add_settings_field(
 			'arve_options_main[autoplay]',
@@ -649,7 +649,7 @@ class Advanced_Responsive_Video_Embedder_Admin {
 			$message .= '<p>Your Advanced Responsive Video Embedder plugin was updated to version 6.0. Some things changed, please see <a href="https://nextgenthemes.com/?p=1875">migration guide</a> for details.</p>';
 		}
 		
-		$message .= sprintf(
+		$pro_message .= sprintf(
 			__(
 				'<p>This is Nico the Author of the Advanced Responsive Video Embedder plugin. When you <strong><a href="%s" target="_blank">buy the Pro Addon</a></strong> of this plugin you will get this:</p>
 				<ul>

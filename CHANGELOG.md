@@ -1,5 +1,13 @@
 ## Changelog ##
 
+### Pro Addon 1.1.0 ###
+
+* Fix: Various issues reguarding lightbox mode.
+
+### 6.1.0 ###
+
+* Fix: Messages about pro addon removed when it is installed.
+
 ### Pro Addon 1.0.7 ###
 
 * Fix: Video start playing again invisible when closeing lightbox with ESC.
